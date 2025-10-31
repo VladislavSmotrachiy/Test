@@ -1,10 +1,14 @@
- public class Students
+using System.ComponentModel;
+
+public class Students
 {
 
     private string Name;
     private int Age;
     private int SolutinsNuber;
     private int CorrectSolutinsNuber;
+
+    private bool Flag;
 
 
 public Students(string name, int age)
@@ -23,23 +27,31 @@ public Students(string name, int age)
     {
         return ($"{Name}  {Age} ");
     }
+
+    public bool GetFlag(int number)
+    {
+        if (number == 1)
+        {
+            Flag = true;
+        }
+        else
+        {
+            Flag = false;
+        }
+        return Flag;
+    }
     
-    public void GetCorrectSolutinsNu()
+    public void GetCorrectSolutinsNu(bool n)
     {   
-        while (SolutinsNuber < 10)
+        if (n == true)
         {
             SolutinsNuber++;
-            System.Console.WriteLine($"Задача {SolutinsNuber} решил правильно? ");
-
-            string answer = Console.ReadLine();
-
-            if (answer == "да" || answer == "yes" || answer == "y")
-            {
-                CorrectSolutinsNuber++;
-
-            }
-            System.Console.WriteLine($"количесвто задач {SolutinsNuber} решено {CorrectSolutinsNuber}");
+            CorrectSolutinsNuber++;
+           
+        } else
+        {
+            SolutinsNuber++;
         }
-
+    
     }
 }
